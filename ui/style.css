@@ -1,0 +1,549 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'MacMinecraft', sans-serif;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@font-face {
+  font-family: 'MacMinecraft';
+  src: url('assets/fonts/font.woff2') format('woff2');
+}
+
+body {
+  background: #1e150f url("assets/images/background.png") repeat;
+  color: #e5e7eb;
+}
+
+p {
+  color: rgba(255,255,255,0.75);
+  font-size: 16px;
+}
+
+a {
+  color: #3f8fff;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* RUNNING STEVE */
+
+@keyframes running_steve {
+  from {right:0%;left:100%}
+  to {right:100%;left:0%;}
+}
+
+.running_steve {
+  position: fixed;
+  bottom: 10px;
+  zoom: 50%;
+  z-index: -1;
+  animation-name: running_steve;
+  animation-duration: 5s;
+  animation-delay: 300s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+/* LOADING OVERLAY */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.loading-box {
+  background: #111;
+  border: 4px solid #333;
+  padding: 20px 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 10px;
+}
+
+/* SIDEBAR */
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background: #111;
+  border-right: 4px solid #333;
+  padding-top: 20px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background: #222;
+  color: #fff;
+}
+
+.sidebar-item.active {
+  background: #333;
+  color: #fff;
+}
+
+.sidebar-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar-version {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: left;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-version.outdated {
+  color: #ff4d4f;
+  font-weight: 700;
+  opacity: 1;
+}
+
+/* MAIN APP */
+#app {
+  padding: 16px;
+  margin-left: 200px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+#refresh-btn {
+  margin-left: auto;
+}
+
+#topbar-profile {
+  display: none;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* PAGES */
+.page {
+  margin-top: 8px;
+}
+
+/* HOME INFO BOX */
+.info-box {
+  background: rgba(0,0,0,0.25);
+  border: 4px solid #333;
+  color: #e5e7eb;
+  padding: 18px;
+}
+
+.info-box div {
+  margin-bottom: 6px;
+}
+
+.home-launch-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.big-launch-btn {
+  padding: 14px 40px;
+  font-size: 18px;
+  background: #128318;
+  border: 4px solid #0a5010;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.big-launch-btn:hover {
+  background: #42c248;
+}
+
+.status {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* VERSIONS PAGE */
+.versions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 22px;
+}
+
+.versions-filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.versions-filter select {
+  background: #3c3f41;
+  border: 1px solid #1f2937;
+  color: #e5e7eb;
+  padding: 4px 8px;
+}
+
+.versions-filter input {
+  padding: 4px 8px;
+  background:#3c3f41;
+  border:1px solid #1f2937;
+  color:#e5e7eb;
+}
+
+/* VERSION SECTIONS */
+.versions-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+#versions-section-warning {
+  color: #ff4141;
+  padding: 10px;
+}
+
+.versions-section-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.versions-section-header h3 {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.versions-section-subtitle {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* VERSION LISTS */
+.versions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* VERSION CARDS */
+.version-card {
+  width: 260px;
+  background: #1a1a1a;
+  border: 4px solid #333;
+  cursor: pointer;
+  color: #ccc;
+  transition: 0.1s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.version-card:hover {
+  background: #222;
+  border-color: #555;
+}
+
+.version-card.selected {
+  background: #333;
+  border-color: #fff;
+  color: #fff;
+}
+
+.version-card.unselectable {
+  cursor: default;
+}
+
+.version-card.unselectable:hover {
+  background: #1a1a1a;
+  border-color: #333;
+  color: #ccc;
+}
+
+.version-card.installing::after {
+  content: "Downloading...";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.version-card.favorite {
+  background: #333325;
+  border-color: #c0a716;
+}
+
+.version-card.favorite:hover {
+  background: #3f3f25;
+  border-color: #f7cf33;
+}
+
+.version-card.favorite.selected {
+  background: #3f3f25;
+  border-color: #fff2bc;
+  color: #fff;
+}
+
+.version-image {
+  width: 100%;
+  height: 140px;
+  background: #000;
+  object-fit: cover;
+}
+
+.version-info {
+  padding: 8px 10px;
+}
+
+/* header row inside version-info */
+.version-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.version-display {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.version-folder {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* FAVORITES + DELETE */
+.version-actions-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-button {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* CARD FOOTER / ACTIONS */
+.version-actions {
+  display: flex;
+  gap: 6px;
+  padding: 8px 10px 10px 10px;
+}
+
+.version-actions button {
+  flex: 1;
+  font-size: 12px;
+}
+
+/* VERSION DOWNLOAD PROGRESS BAR */
+.version-progress {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: #111827;
+  overflow: hidden;
+}
+
+.version-progress.paused {
+  background: #e6b83b !important;
+}
+
+.version-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #22c55e;
+  transition: width 0.2s linear;
+}
+
+.version-progress-fill.paused {
+  background: #e6b83b !important;
+}
+
+/* BADGES */
+.version-badge-row {
+  display: flex;
+  gap: 6px;
+  padding: 0 10px 6px 10px;
+}
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.version-badge.installed {
+  background: #14532d;
+  border: 2px solid #043a1a;
+  color: #bbf7d0;
+}
+
+.version-badge.available {
+  background: #3b3b3b;
+  border: 2px solid #242424;
+  color: #dfdfdf;
+}
+
+.version-badge.official {
+  background: #ff3636;
+  border: 2px solid #721313;
+  color: #ffd1d1;
+}
+
+.version-badge.nonofficial {
+  background: #582c0f;
+  border: 2px solid #44200a;
+  color: #ffdfb4;
+}
+
+.version-badge.paused {
+  background: #be950b;
+  border: 2px solid #634d07;
+  color: #fff1cc;
+}
+
+.version-badge.lite {
+  background: #1e40af;
+  border: 2px solid #0c2559;
+  color: #bfdbfe;
+}
+
+/* SETTINGS PAGE */
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.row label {
+  min-width: 90px;
+  color: #9ca3af;
+}
+
+.row input {
+  background: #3c3f41;
+  border: 4px solid #1a1c1d;
+  color: #e5e7eb;
+  padding: 6px 8px;
+}
+
+.row select {
+  background: #3c3f41;
+  border: 2px solid #1a1c1d;
+  color: #e5e7eb;
+  padding: 6px 8px;
+}
+
+button {
+  padding: 6px 12px;
+  background: #3d3d3d;
+  border: 4px solid #2b2b2b;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4a4d4f;
+}
+
+button.primary {
+  background: #22c55e;
+  border-color: #12883d;
+  color: #022c10;
+}
+
+button.primary:hover {
+  background: #2ee070;
+}
+
+button.mild {
+  background: #cc9600;
+  border-color: #6e5100;
+  color: #fff8d7;
+}
+
+button.mild:hover {
+  background: #c5a026;
+}
+
+button.important {
+  background: #186a99;
+  border-color: #10405f;
+  color: #d0eeff;
+}
+
+button.important:hover {
+  background: #2389c4;
+}
+
+button.danger {
+  background: #c52222;
+  border-color: #771313;
+  color: #ffeaea;
+}
+
+button.danger:hover {
+  background: #de4a4a;
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Histolauncher</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div class="sidebar-item active" data-page="home">
+      <img 
+        class="sidebar-icon"
+        data-static="assets/images/histolauncher_block.png"
+        data-anim="assets/images/histolauncher_block.png"
+        src="assets/images/histolauncher_block.png"
+      />
+      <span>Home</span>
+    </div>
+    <div class="sidebar-item" data-page="versions">
+      <img 
+        class="sidebar-icon"
+        data-static="assets/images/library_block.png"
+        data-anim="assets/images/library_block.png"
+        src="assets/images/library_block.png"
+      />
+      <span>Versions</span>
+    </div>
+    <div class="sidebar-item" data-page="settings">
+      <img 
+        class="sidebar-icon"
+        data-static="assets/images/settings.png"
+        data-anim="assets/images/settings.gif"
+        src="assets/images/settings.png"
+      />
+      <span>Settings</span>
+    </div>
+    <div class="sidebar-item" data-page="about">
+      <img 
+        class="sidebar-icon"
+        data-static="assets/images/unknown_block.png"
+        data-anim="assets/images/unknown_block.png"
+        src="assets/images/unknown_block.png"
+      />
+      <span>About</span>
+    </div>
+
+    <div id="sidebar-version" class="sidebar-version" title="Launcher version"></div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div id="topbar-profile" style="display:none;align-items:center;gap:8px;">
+        <img id="topbar-profile-pic" width="32" height="32" style="border:solid 2px #1c1c1c;" alt="Profile" title="Histolauncher Account"/>
+        <span id="topbar-username" style="color:#e5e7eb;font-size:14px;"></span>
+      </div>
+      <button id="refresh-btn" title="Refresh values (Hold shift to refresh page)">Refresh</button>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page">
+      <h2 class="section-title"><img width="24px" height="24px" src="assets/images/histolauncher.png"/> Home</h2>
+
+      <div id="home-info" class="info-box" style="max-width:720px;margin:40px auto 20px auto;">
+        <div id="info-version"><img width="16px" height="16px" src="assets/images/unknown.png"/> Version: (none selected)</div>
+        <div id="info-username"><img width="16px" height="16px" src="assets/images/unknown.png"/> Account: (unknown)</div>
+        <div id="info-ram"><img width="16px" height="16px" src="assets/images/unknown.png"/> RAM Limit: (unknown)</div>
+      </div>
+
+      <div class="home-launch-container">
+        <button id="launch-btn" class="big-launch-btn">Launch</button>
+      </div>
+
+      <!-- a little easter egg -->
+      <img class="running_steve" src="assets/images/running_steve.gif"/>
+
+      <div id="status" class="status"></div>
+    </div>
+
+    <!-- VERSIONS PAGE -->
+    <div id="page-versions" class="page hidden">
+      <div class="versions-header">
+        <h2 class="section-title"><img width="24px" height="24px" src="assets/images/library.png"/> Versions</h2>
+
+        <div class="versions-filter">
+          <label for="versions-category-select">Category:</label>
+          <select id="versions-category-select"></select>
+
+          <label for="versions-search">Search:</label>
+          <input id="versions-search" type="search" placeholder="Search...">
+        </div>
+      </div>
+
+      <div class="versions-sections">
+        <p id="versions-section-warning" class="hidden">Warning message</p>
+
+        <section id="installed-section" class="info-box">
+          <div class="versions-section-header">
+            <h3>Installed</h3>
+            <span class="versions-section-subtitle">Versions that are installed in your device and ready to launch!</span>
+          </div>
+          <div id="installed-versions" class="versions-list"></div>
+        </section>
+
+        <section id="installing-section" class="info-box">
+          <div class="versions-section-header">
+            <h3>Installing</h3>
+            <span class="versions-section-subtitle">Versions that are currently being downloaded.</span>
+          </div>
+          <div id="installing-versions" class="versions-list"></div>
+        </section>
+
+        <section id="available-section" class="info-box">
+          <div class="versions-section-header">
+            <h3>Available</h3>
+            <span class="versions-section-subtitle">Versions from Mojang's official servers.</span>
+          </div>
+          <div id="available-versions" class="versions-list"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- SETTINGS PAGE -->
+    <div id="page-settings" class="page hidden">
+      <h2 class="section-title"><img width="24px" height="24px" src="assets/images/settings.gif"/> Settings</h2>
+
+      <br>
+      <h3>Account</h3>
+      <br>
+
+      <div class="row" id="username-row">
+        <label>Username:</label>
+        <input type="text" id="settings-username" maxlength="16" size="15"/>
+      </div>
+
+      <div class="row">
+        <label>Account Type:</label>
+        <select id="settings-account-type">
+          <option value="Local">Local</option>
+          <option value="Histolauncher">Histolauncher</option>
+        </select>
+        <button id="connect-account-btn" class="primary" style="margin-left:12px; display:none;">Connect Account</button>
+        <button id="disconnect-account-btn" class="danger" style="margin-left:8px; display:none;">Disconnect</button>
+      </div>
+
+      <br>
+      <h3>Client</h3>
+      <br>
+
+      <div class="row">
+        <label>Minimum RAM:</label>
+        <input type="text" id="settings-min-ram" placeholder="64M" size="5"/>B
+      </div>
+      <div class="row">
+        <label>Maximum RAM:</label>
+        <input type="text" id="settings-max-ram" placeholder="2048M" size="5"/>B
+      </div>
+      <div class="row">
+        <label>Storage directory:</label>
+        <select id="settings-storage-dir">
+          <option value="global">Global</option>
+          <option value="version">Version</option>
+        </select>
+      </div>
+
+      <br>
+      <h3>Launcher</h3>
+      <p style="color:#ff505099;font-size:12px;">Do not change these settings here unless you know what you are doing! Anything here can change the behavior of the Launcher.</p>
+      <br>
+
+      <div class="row">
+        <label>URL Proxy:</label>
+        <input type="text" id="settings-url-proxy" placeholder="https://yourproxy.com/?url=" size="40"/>
+      </div>
+      <div class="row">
+        <label>Low-Data Mode:</label>
+        <input type="checkbox" id="settings-low-data"/>
+      </div>
+      <div class="row">
+        <label>Data Folder:</label>
+        <button id="open-data-folder-btn">Open Data Folder</button>
+      </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="page-about" class="page hidden">
+      <h2 class="section-title"><img width="24px" height="24px" src="assets/images/unknown.png"/> About</h2>
+      <br>
+
+      <p>
+        Histolauncher is a lightweight, community-driven launcher built to grow and help users play any versions of Minecraft they like. It provides a clean, modern interface for browsing and launching a massive library of Minecraft clients, all officially from Mojang!
+        <br><br>
+        The goal is simple: make it easy for anyone to play any Minecraft version offline without having to risk searching for 100% clean launcher. Everything is organized, searchable, and ready to download & launch with just a few clicks.
+        <br><br>
+        If you'd like to contribute, report issues, or help expand support for more versions, you're invited to join the project on GitHub: <a href="https://github.com/KerbalOfficial/Histolauncher/" target="_blank" rel="noopener noreferrer">Histolauncher GitHub</a>
+        <br><br>
+        Histolauncher is a passion project - built for easy access to Minecraft clients offline whenever. Enjoy playing Minecraft!
+      </p>
+    </div>
+
+  </div>
+
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <!-- LAUNCH LOADING OVERLAY -->
+    <div id="launching-box" class="loading-box hidden">
+      <img class="spinner" src="assets/images/nether_block.gif" alt="">
+      <div class="loading-text">Launching...</div>
+    </div>
+
+    <!-- LOADING OVERLAY -->
+    <div id="loading-box" class="loading-box hidden">
+      <img class="spinner" src="assets/images/settings.gif" alt="">
+      <div class="loading-text">Loading...</div>
+    </div>
+  </div>
+
+  <!-- MESSAGE BOX -->
+  <div id="msgbox-overlay" class="loading-overlay hidden">
+    <div id="msgbox-box" class="loading-box">
+      <div id="msgbox-title" style="font-size:20px; font-weight:bold; margin-bottom:10px;"></div>
+      <div id="msgbox-text" style="margin-bottom:20px; font-size:15px;"></div>
+      <div id="msgbox-buttons" style="display:flex; gap:12px; justify-content:center;"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
