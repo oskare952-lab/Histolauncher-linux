@@ -58,6 +58,8 @@ class Platform:
             return 'android'
         elif self._platform_ios is True:
             return 'ios'
+        elif _sys_platform in ('win32', 'cygwin'):
+            return 'win'
         elif _sys_platform == 'darwin':
             return 'macosx'
         elif _sys_platform[:5] == 'linux':

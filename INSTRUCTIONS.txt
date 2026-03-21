@@ -2,8 +2,8 @@ Thank you for installing Histolauncher! (Beta build)
 
 —————————————————————————————————————————————————————————————————————————————
 
-[NOTE]: This version (b1.2.1) needs testing on Linux & Mac!
-        It has not been tested yet!
+[NOTE]: This version (b1.3) is tested on Windows, Linux, and macOS.
+        Linux support includes automatic installation of required dependencies.
 
 —————————————————————————————————————————————————————————————————————————————
 
@@ -14,8 +14,7 @@ How to open:
 —————————————————————————————————————————————————————————————————————————————
 
 How to get a custom skin:
-- Make an account in the official Histolauncher account:
-  https://histolauncher.pages.dev/
+- Make an account in the official Histolauncher website (histolauncher.org)
 - Once you make an account, log-in and click on your profile in the top
   right, then click 'Settings'
 - Upload your custom skin (needs to be a PNG and 64x64 or 64x32 size)
@@ -48,4 +47,6 @@ for the launcher, please create a new "Issue" in the GitHub!
 
 GitHub: https://github.com/KerbalOfficial/Histolauncher
 Discord: https://discord.gg/P8dddrXFkn
-Website: https://histolauncher.pages.dev/
+
+Website: https://histolauncher.org/
+Backup Website: https://histolauncher.pages.dev/
