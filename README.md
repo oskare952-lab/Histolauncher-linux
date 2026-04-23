@@ -1,3 +1,4 @@
+Due to Kerbal planning to add linux support to b1.4 this repo will be mostly useless and most likely remain outdated for a while but i will remove most windows and macos specific things from the official thing if i am not lazy (planning to atleast do b1.4)
 # What is Histolauncher?
 Histolauncher is a lightweight, community-driven launcher built to grow and help users play any versions of Minecraft they like.
 
