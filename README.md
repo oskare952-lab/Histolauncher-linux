@@ -1,4 +1,4 @@
-Due to Kerbal planning to add linux support to b1.4 this repo will be mostly useless and most likely remain outdated for a while but i will remove most windows and macos specific things from the official thing if i am not lazy (planning to atleast do b1.4) Also i will change every release to stable instead of pre-release so github actually shows it.
+Due to Kerbal planning to add linux support to b1.4 this repo will be mostly useless and most likely remain outdated for a while but i will remove most windows and macos specific things from the official thing if i am not lazy (planning to atleast do b1.4) Also i will change every release to stable instead of pre-release so github actually shows it. Btw b1.2 and b1.3 are vibe coded yeah i know shame on me might change b1.4 but no promises you will have to wait and see also apologies for trash formatting on this part and the below docs may or may not be outdated as i dont really update it mostly copy paste and ai to make it more accurate.
 # What is Histolauncher?
 Histolauncher is a lightweight, community-driven launcher built to grow and help users play any versions of Minecraft they like.
 
