@@ -1,0 +1,78 @@
+Thank you for installing Histolauncher! (Beta build)
+
+—————————————————————————————————————————————————————————————————————————————
+
+[NOTE]: I will not modify this from original repo as im lazy but if someone else wants to they can
+        version (b1.4) is best tested on Windows. There is partial Linux
+        support: the launcher can run on Linux, but not guaranteed.
+
+        For Linux, it was tested on CachyOS (Arch-based Linux) KDE Plasma.
+
+        MacOS is not supported at this time. We plan to improve Linux support
+        and add MacOS support in a future update! Note by linux repo creator: Fuck mac no support for mac!
+
+—————————————————————————————————————————————————————————————————————————————
+
+How to open:
+- Make sure you have the requirements (check GitHub README.md)
+- Open `launcher.pyw` (or `launcher.sh` for Linux) by double-clicking, it
+  should use Python to run
+- To repair or remove the app shortcut later, open `shortcut.pyw` (or
+  `shortcut.sh` for Linux).
+- Enjoy!
+
+—————————————————————————————————————————————————————————————————————————————
+
+How to get a custom skin:
+- Make an account in the official Histolauncher website (histolauncher.org)
+- Once you make an account, log-in and click on your profile in the top
+  right, then click 'Settings'
+- Upload your custom skin (needs to be a PNG and 64x64 or 64x32 size)
+  and set the correct skin type (Classic, Slim)
+- Once successful, go to Histolauncher app, then go to Settings and switch
+  the 'Account type' setting to 'Histolauncher'
+- Enter your Histolauncher account credentials and press 'Log in'
+- Successfully log-in, you should see your profile icon and name on the top
+  left, the username you signed-up with will be your Minecraft username.
+- Skins will successfully load in all Minecraft versions!
+
+NOTICE: Histolauncher now installs its required Python runtime components
+        automatically into a private launcher venv on first run. If that
+        automatic install fails, custom skins may only load from oldest to
+        1.20.1 until `cryptography` becomes available.
+
+IMPORTANT: If you want to get skins working on Multiplayer servers with
+           Minecraft versions 1.20.2 and above, you need to use a mod
+           developed by us.
+
+           Modrinth project page:
+              https://modrinth.com/mod/histoskins
+           CurseForge project page:
+              https://www.curseforge.com/minecraft/mc-mods/histoskins
+
+—————————————————————————————————————————————————————————————————————————————
+
+How to enable debug mode (always show terminal):
+- [METHOD 1]: Open `launcher.py` instead of `launcher.pyw` to enable debug mode.
+- [METHOD 2]: Go to terminal, make sure you are in the same path as where
+              `launcher.pyw` is in, then type `python launcher.py` and
+              press Enter.
+
+—————————————————————————————————————————————————————————————————————————————
+
+Histolauncher tries to install and use its built-in window runtime
+automatically. If the built-in window is still unavailable, it will open in
+your default browser instead.
+
+If you have any issues, any problems, or any suggestions you want to give
+for the launcher, please create a new "Issue" in the GitHub!
+
+—————————————————————————————————————————————————————————————————————————————
+
+GitHub: https://github.com/KerbalOfficial/Histolauncher
+Discord: https://discord.gg/P8dddrXFkn
+
+Website: https://histolauncher.org/
+Backup Website: https://histolauncher.pages.dev/
+
+Wiki: https://wiki.histolauncher.org/
